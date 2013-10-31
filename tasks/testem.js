@@ -25,6 +25,9 @@ module.exports = function(grunt) {
     }
     grunt.log.writeln('Now testing...');
 
+    //this.files doesn't work with multiTask
+    this.files = [ this.data.src ? this.data : this.data.main ];
+
     this.files.forEach(function(f) {
       var tap = f.dest,
           files = f.src.filter(function(filepath) {
